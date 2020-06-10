@@ -7,28 +7,28 @@ int main(void)
 	// Enable AHB1 clock
 	RCC->AHB1ENR |= 0x1;
 	
-	// GPIOA Mode
+	// Output mode for PA5
 	GPIOA->MODER |= 0x400;
 	
 	while(1)
 	{
-		// Data direction enable
-		GPIOA->ODR |= 0x20;
+		// Set PA5 high by utilizing enable bit
+		GPIOA->BSRR |= 0x20;
 		delayMs(100);
-		// Data direction disable
-		GPIOA->ODR &=~ 0x20;
+		
+		// Set PA5 low by utilizing reset bit
+		GPIOA->BSRR |= 0x200000;
 		delayMs(1000);
 	}
 	
 	return 0;
 }
 
-// Assuming 16Mhz system clock
-// This will work
 void delayMs(int ms)
 {
+	int i = 0;
 	for(; ms > 0; ms--)
 	{
-		for(int j = 0; j < 3195; j++);
+		for(i = 0; i < 3195; i++);
 	}
 }
