@@ -1,35 +1,32 @@
-//LD2 - PA5
-//AHB1
-//RCC->AHB1ENR
-
-
 #include "stm32f4xx.h"                  // Device header
 
-void delayMs(int delay);
+void delayMs(int ms);
 
 int main(void)
 {
-	// Enable clock access to AHB1 bus
-	RCC->AHB1ENR |= 1;
+	// Enable AHB1 clock
+	RCC->AHB1ENR |= 0x1;
 	
+	// GPIOA Mode
 	GPIOA->MODER |= 0x400;
 	
 	while(1)
 	{
+		// Data direction enable
 		GPIOA->ODR |= 0x20;
 		delayMs(100);
+		// Data direction disable
 		GPIOA->ODR &=~ 0x20;
-		delayMs(100);
+		delayMs(1000);
 	}
 	
 	return 0;
 }
 
-void delayMs(int delay)
+void delayMs(int ms)
 {
-	int i;
-	for(; delay > 0; delay--)
+	for(; ms > 0; ms--)
 	{
-		for(i = 0; i < 3195; i++);
+		for(int j = 0; j < 3195; j++);
 	}
 }
