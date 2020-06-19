@@ -19,5 +19,5 @@ void USART2_init(void)
 	
 	USART2->BRR = 0x0683;		// 9600 @ 16MHz
 	USART2->CR1 = 0x0008;		// Enable TX
-	USART2->CR1 |= 0x20000;		// Enable module
+	USART2->CR1 |= 0x20000;		// Enable USART module
 }
