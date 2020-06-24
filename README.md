@@ -20,3 +20,5 @@ This way LED is giving some feedback regarding if button is pushed or not.
 ### UART
 Can TX <br>
 ![USART TX](https://i.gyazo.com/e00ea7c548ecbe459324b170759914b7.png)
+<br>
+Working on RX and then this explanation will be updated in detail.
