@@ -18,5 +18,5 @@ Inside the looop if I read PC13 as high I set the BSRR for PA5 and if I don't de
 This way LED is giving some feedback regarding if button is pushed or not.
 
 ### UART
-Can TX
+Can TX <br>
 ![USART TX](https://i.gyazo.com/e00ea7c548ecbe459324b170759914b7.png)
