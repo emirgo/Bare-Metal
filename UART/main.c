@@ -18,6 +18,7 @@ int main(void)
 		USART_write('H');
 		USART_write('N');
 		USART_write('E');
+		USART_write('\r');
 		USART_write('\n');
 	}
 	
