@@ -8,9 +8,11 @@
 
 void USART2_init(void);
 void USART_write(char ch);
+void led_init(void);
 
 int main(void)
 {
+	led_init();
 	USART2_init();
 	
 	while(1)
@@ -40,6 +42,14 @@ void USART2_init(void)
 
 void USART_write(char ch)
 {
+	GPIOA->BSRR |= 0x20; //blink
 	while(!(USART2->SR & 0x0080)){}	// Check transmit buffer via status register
 	USART2->DR = (ch & 0xFF); // Put data into data register
+	GPIOA->BSRR |= 0x200000; //reset
+}
+
+void led_init(void)
+{
+	RCC->AHB1ENR |= 1;
+	GPIOA->MODER |= 0x400;
 }
