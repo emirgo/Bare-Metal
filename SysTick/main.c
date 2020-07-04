@@ -7,7 +7,8 @@ int main(void)
 	init_led();
 	
 	// Configure SysTick
-	SysTick->LOAD = 3200000 - 1;
+	// 16Mhz / value given
+	SysTick->LOAD = 1600000 - 1;
 	SysTick->VAL = 0;
 	SysTick->CTRL = 5;
 	
