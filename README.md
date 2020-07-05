@@ -22,3 +22,7 @@ Can TX <br>
 ![USART TX](https://i.gyazo.com/2b665733c129b8633d02856f73bdb401.png)
 <br>
 Now can receive commands too. Value given by the keyboard is converted into LED signal.
+
+### SysTick Delay
+SysTick is a system counter (timer) and I utilize a millisecond by setting the load as 16000 since the system clock is 16 000 000, 16000/16000000 = 0.001.
+Delay function takes an integer argument representing milliseconds of delay. Function loops given argument times millisecond resulting in a delayMs function.
